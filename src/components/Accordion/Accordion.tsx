@@ -5,6 +5,7 @@ type AccordionPropsType = {
     collapsed: boolean
 }
 
+
 function Accordion(props: AccordionPropsType) {
     console.log("Accordion rendering");
     if(props.collapsed){
