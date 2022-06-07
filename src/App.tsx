@@ -5,7 +5,8 @@ import {Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {OnOff2} from "./components/OnOff2/OnOff2";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
-import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import { UncontrolledRating } from './components/UncontrolledRating/UncontrolledRating';
+
 
 function App() {
     console.log("App rendering");
