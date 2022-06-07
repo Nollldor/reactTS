@@ -14,8 +14,7 @@ function Accordion(props: AccordionPropsType) {
             {!props.collapsed && <AccordionBody/>}
         </>
 
-)
-    ;
+    )
 
 }
 
