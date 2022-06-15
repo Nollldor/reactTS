@@ -29,7 +29,7 @@ export function UncontrolledAccordion (props: AccordionPropsType) {
 type AccordionTitlePropsType = {
     titleValue: string
     toggle: boolean
-    callback: (toogle: boolean)=>void
+    callback: (toggle: boolean)=>void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {

@@ -1,15 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
-import {OnOff} from "./components/OnOff/OnOff";
 import {OnOff2} from "./components/OnOff2/OnOff2";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
-import { UncontrolledRating } from './components/UncontrolledRating/UncontrolledRating';
+import {RatingType, UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
+import {UncontrolledOnOff2} from "./components/UncontrolledOnOff2/UncontrolledOnOff2";
 
 
 function App() {
-    console.log("App rendering");
+    /*console.log("App rendering");*/
+    const [ratingValue, setRatingValue] = useState<RatingType>(0)
+    const [accordionCollapsed,setAccordionCollapsed] = useState<boolean>(true)
+    const [onOffSignal,setOnOffSignal] = useState<boolean>(true)
 
     return (
         <div>
@@ -20,17 +23,16 @@ function App() {
             {/*<Accordion titleValue={"Menu"} collapsed={true}/>
             <Accordion titleValue={"Users"} collapsed={false}/>
             Article 2
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>*/}
+            */}
             {/*<OnOff signal={true}/>
             <OnOff signal={false}/>*/}
             <UncontrolledAccordion titleValue={"Menu"}/>
-            <OnOff2/>
+            <OnOff2 signal={onOffSignal} onClick={setOnOffSignal}/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
             <UncontrolledRating/>
+            <Accordion titleValue={"Users"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
+
+            <UncontrolledOnOff2 onChange={setOnOffSignal}/> {onOffSignal.toString()}
         </div>
     );
 }

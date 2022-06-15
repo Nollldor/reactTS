@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-type RatingType = 0 | 1 | 2 | 3 | 4 | 5;
+export type RatingType = 0 | 1 | 2 | 3 | 4 | 5;
 
 
 export function UncontrolledRating() {
@@ -36,9 +36,9 @@ function Star(props: StarPropsType) {
         props.callback(props.keyValue)
     }
 
-    if (props.selected) {
-        return <span onClick={onclickHandler}><b> * star * </b></span>
-    } else {
-        return <span onClick={onclickHandler}> * star * </span>
-    }
+    return (
+        <span onClick={onclickHandler}>
+            {props.selected? <b> * star * </b> : "* star *"}
+        </span>
+    )
 }
