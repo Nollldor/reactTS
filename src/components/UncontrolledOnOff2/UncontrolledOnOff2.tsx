@@ -1,11 +1,12 @@
 import {useState} from "react";
 
 type UncontrolledOnOff2PropsType = {
-    onChange:(signal:boolean)=>void
+    onChange: (signal: boolean) => void
+    defaultMode?: boolean
 }
 
 export const UncontrolledOnOff2 = (props: UncontrolledOnOff2PropsType) => {
-    const [onValue, setOnValue] = useState(false)
+    const [onValue, setOnValue] = useState(props.defaultMode ? props.defaultMode : false)
 
     const onStyle = {
         width: "30px",
@@ -33,23 +34,22 @@ export const UncontrolledOnOff2 = (props: UncontrolledOnOff2PropsType) => {
     }
 
 
-
     const onClickHandler = (on: boolean) => {
         /*on ? setOnValue(true) : setOnValue(false)*/
-        if(on){
+        if (on) {
             setOnValue(true)
             props.onChange(true)
-        }else{
+        } else {
             setOnValue(false)
             props.onChange(false)
         }
     }
 
-    return(
+    return (
         <div>
-            <div style={onStyle} onClick={()=>onClickHandler(true)}>On</div>
-            <div style={offStyle} onClick={()=>onClickHandler(false)}>Off</div>
+            <div style={onStyle} onClick={() => onClickHandler(true)}>On</div>
+            <div style={offStyle} onClick={() => onClickHandler(false)}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
-        )
+    )
 }

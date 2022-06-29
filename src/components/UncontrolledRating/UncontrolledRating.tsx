@@ -2,12 +2,18 @@ import React, {useState} from "react";
 
 export type RatingType = 0 | 1 | 2 | 3 | 4 | 5;
 
+type UncontrolledRatingPropsType = {
+    defaultValue?: RatingType
+    onChange?:(value:RatingType)=>void
+}
 
-export function UncontrolledRating() {
-    const [ratingValue, setRatingValue] = useState<RatingType>(0)
 
-    const changeRating = (value:RatingType)=> {
+export function UncontrolledRating(props: UncontrolledRatingPropsType) {
+    const [ratingValue, setRatingValue] = useState<RatingType>(props.defaultValue ? props.defaultValue : 0)
+
+    const changeRating = (value: RatingType) => {
         setRatingValue(value)
+        props.onChange && props.onChange(value)
     }
 
     console.log("Rating rendering");
@@ -24,7 +30,7 @@ export function UncontrolledRating() {
 
 
 type StarPropsType = {
-    keyValue:RatingType
+    keyValue: RatingType
     selected: boolean
     callback: (value: RatingType) => void
 }
@@ -32,13 +38,13 @@ type StarPropsType = {
 function Star(props: StarPropsType) {
     console.log("Star rendering");
 
-    const onclickHandler = () =>{
+    const onclickHandler = () => {
         props.callback(props.keyValue)
     }
 
     return (
         <span onClick={onclickHandler}>
-            {props.selected? <b> * star * </b> : "* star *"}
+            {props.selected ? <b> * star * </b> : "* star *"}
         </span>
     )
 }

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {action} from "@storybook/addon-actions";
 import {UncontrolledAccordion} from "./UncontrolledAccordion";
-import {ChangingMode} from "../UncontrolledOnOff2/UncontrolledOnOff2.stories";
 
 
 //for stories menu
