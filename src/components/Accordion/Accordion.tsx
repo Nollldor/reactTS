@@ -1,6 +1,9 @@
 import React from "react";
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
+    /**
+     * value for AccordionTitle
+     */
     titleValue: string,
     collapsed: boolean
     onClick: (collapsed:boolean)=>void
@@ -22,6 +25,7 @@ function Accordion(props: AccordionPropsType) {
 
 
 type AccordionTitlePropsType = {
+
     titleValue: string
     onClick:(collapsed:boolean)=>void
     collapsed:boolean

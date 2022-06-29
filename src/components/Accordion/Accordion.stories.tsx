@@ -1,28 +1,42 @@
 import React, {useState} from 'react';
-
-import {action} from "@storybook/addon-actions";
 import Accordion from "./Accordion";
+import {ComponentMeta, ComponentStory} from "@storybook/react";
 
 
 //for stories menu
-export default  {
+export default {
     title: 'Accordion',
-    component: Accordion
-}
+    component: Accordion,
+    argTypes: { onClick: { action: 'accordion title clicked' } },
+} as ComponentMeta<typeof Accordion>;
 
 //variants of component
 
-const callback =()=>action("accordion title clicked")
 
-export const CollapsedMode = () => <Accordion titleValue={"title"} collapsed={true} onClick={callback}/>
-export const UncollapsedMode = () => <Accordion titleValue={"title"} collapsed={false} onClick={callback}/>
+const template:ComponentStory<typeof Accordion> = (args) => <Accordion {...args}/>
+
+export const CollapsedMode = template.bind({})
+CollapsedMode.args = {
+    titleValue: "title",
+    collapsed: true,
+}
+
+export const UncollapsedMode = template.bind({})
+UncollapsedMode.args = {
+    titleValue: "title",
+    collapsed: false,
+}
 
 
+/*export const CollapsedMode = () => <Accordion titleValue={"title"} collapsed={true} onClick={callback}/>
+export const UncollapsedMode = () => <Accordion titleValue={"title"} collapsed={false} onClick={callback}/>*/
 
 
-export const ChangingMode = () => {
-
-    const [signal,setSignal] = useState<boolean>(false)
-    return <Accordion titleValue={"title"} collapsed={signal} onClick={setSignal}/>
+export const ChangingMode:ComponentStory<typeof Accordion> = (args) => {
+    const [signal, setSignal] = useState<boolean>(false)
+    return <Accordion {...args} collapsed={signal} onClick={setSignal}/>
+}
+ChangingMode.args = {
+    titleValue: "title",
 }
 
