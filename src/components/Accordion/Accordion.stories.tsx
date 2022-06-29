@@ -7,7 +7,7 @@ import {ComponentMeta, ComponentStory} from "@storybook/react";
 export default {
     title: 'Accordion',
     component: Accordion,
-    argTypes: { onClick: { action: 'accordion title clicked' } },
+    argTypes: { onChange: { action: 'accordion title clicked' } },
 } as ComponentMeta<typeof Accordion>;
 
 //variants of component
@@ -19,12 +19,14 @@ export const CollapsedMode = template.bind({})
 CollapsedMode.args = {
     titleValue: "title",
     collapsed: true,
+    items: []
 }
 
 export const UncollapsedMode = template.bind({})
 UncollapsedMode.args = {
     titleValue: "title",
     collapsed: false,
+    items: [{value:"Arthur", title:"Arthur"},{value:"Kristine", title:"Kristine"},{value:"Olesya", title:"Olesya"}]
 }
 
 
@@ -34,9 +36,10 @@ export const UncollapsedMode = () => <Accordion titleValue={"title"} collapsed={
 
 export const ChangingMode:ComponentStory<typeof Accordion> = (args) => {
     const [signal, setSignal] = useState<boolean>(false)
-    return <Accordion {...args} collapsed={signal} onClick={setSignal}/>
+    return <Accordion {...args} collapsed={signal} onChange={setSignal}/>
 }
 ChangingMode.args = {
     titleValue: "title",
+    items: [{value:"Arthur", title:"Arthur"},{value:"Kristine", title:"Kristine"},{value:"Olesya", title:"Olesya"}]
 }
 
