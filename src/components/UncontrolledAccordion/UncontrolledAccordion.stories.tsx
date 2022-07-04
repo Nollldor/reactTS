@@ -12,7 +12,7 @@ export default  {
 //variants of component
 
 
-export const TitleUChangingMode = () => <UncontrolledAccordion titleValue={"title"}/>
+export const TitleChangingMode = () => <UncontrolledAccordion titleValue={"title"}/>
 export const MenuChangingMode = () => <UncontrolledAccordion titleValue={"Menu"}/>
 
 

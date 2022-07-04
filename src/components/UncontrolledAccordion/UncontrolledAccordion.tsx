@@ -1,24 +1,30 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
+import {reducer, TOGGLE_COLLAPSED} from "./reducer";
+
 
 type AccordionPropsType = {
     titleValue: string,
     //collapsed: boolean
 }
 
+export function UncontrolledAccordion(props: AccordionPropsType) {
 
-export function UncontrolledAccordion (props: AccordionPropsType) {
+    /*const [collapsed, setCollapsed]  = useState(true)*/
+    const [state, dispatch] = useReducer(reducer, {collapsed: false})
 
-    const [collapsed, setCollapsed]  = useState(true)
-
-    const AccordionTitleOnClickHandler = (toggle:boolean) => {
+    /*const AccordionTitleOnClickHandler = (toggle:boolean) => {
         toggle ? setCollapsed(false) : setCollapsed(true)
+    }*/
+
+    const AccordionTitleOnClickHandler = (toggle: boolean) => {
+        dispatch({type: TOGGLE_COLLAPSED})
     }
 
     console.log("Accordion rendering");
     return (
         <>
-            <AccordionTitle titleValue={props.titleValue} toggle={collapsed} callback={AccordionTitleOnClickHandler}/>
-            {collapsed && <AccordionBody/>}
+            <AccordionTitle titleValue={props.titleValue} toggle={state.collapsed} callback={AccordionTitleOnClickHandler}/>
+            {state.collapsed && <AccordionBody/>}
         </>
 
     )
@@ -29,7 +35,7 @@ export function UncontrolledAccordion (props: AccordionPropsType) {
 type AccordionTitlePropsType = {
     titleValue: string
     toggle: boolean
-    callback: (toggle: boolean)=>void
+    callback: (toggle: boolean) => void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
