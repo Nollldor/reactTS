@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {memo, useState} from "react";
 import s from "./Select.module.css"
 
 type ItemType = {
@@ -12,7 +12,7 @@ type SelectPropsType = {
     items: ItemType[]
 }
 
-export function Select(props: SelectPropsType) {
+export const Select = memo(function Select(props: SelectPropsType) {
     const [collapsed, setCollapsed] = useState(true)
 
     const selectedItem = props.items.find(el => el.value === props.value)
@@ -39,4 +39,4 @@ export function Select(props: SelectPropsType) {
 
         </div>
     );
-}
+})

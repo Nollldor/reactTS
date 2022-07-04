@@ -1,11 +1,11 @@
-import {useState} from "react";
+import React, {useState} from "react";
 
 type OnOff2PropsType = {
     signal: boolean
     onClick: (signal:boolean)=>void
 }
 
-export const OnOff2 = (props: OnOff2PropsType) => {
+export const OnOff2 = React.memo((props: OnOff2PropsType) => {
 
     const onStyle = {
         width: "30px",
@@ -45,4 +45,4 @@ export const OnOff2 = (props: OnOff2PropsType) => {
             <div style={indicatorStyle}></div>
         </div>
         )
-}
+})
