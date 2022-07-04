@@ -18,13 +18,23 @@ export default {
 //variants of component
 
 
-export const UncollapsedMode = () => {
+export const ChangeMode = () => {
     const itemsArray: ItemType[] = [
         {value: "Arthur", title: "Arthur"},
         {value: "Kristine", title: "Kristine"},
         {value: "Olesya", title: "Olesya"}
     ]
     const [parentValue, setParentValue] = useState<any>("Arthur")
+    return <Select value={parentValue} items={itemsArray} onClick={setParentValue}/>
+}
+
+export const ChangeModeWithoutValue = () => {
+    const itemsArray: ItemType[] = [
+        {value: "Arthur", title: "Arthur"},
+        {value: "Kristine", title: "Kristine"},
+        {value: "Olesya", title: "Olesya"}
+    ]
+    const [parentValue, setParentValue] = useState<any>(null)
     return <Select value={parentValue} items={itemsArray} onClick={setParentValue}/>
 }
 
