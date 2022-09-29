@@ -1,5 +1,5 @@
 import React from "react";
-import {SimpleClock} from "../components/SimpleClock/SimpleClock";
+import {Clock} from "../components/Clock/Clock";
 
 export default {
     title: 'SimpleClock demo'
@@ -7,5 +7,5 @@ export default {
 
 
 export const SimpleClockStories = () => {
-    return <SimpleClock/>
+    return <Clock/>
 }

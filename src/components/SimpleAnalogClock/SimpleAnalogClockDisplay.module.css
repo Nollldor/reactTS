@@ -1,0 +1,58 @@
+.clock {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: gray;
+    margin: 0 auto;
+    position: relative;
+}
+
+.clock::after{
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: black;
+    z-index: 4;
+}
+
+.hand {
+    transform-origin: bottom center;
+}
+
+.second {
+    width: 4px;
+    height: 140px;
+    position: absolute;
+    left: calc(50% - 2px);
+    bottom: 50%;
+    background-color: red;
+    z-index: 1;
+    transform: rotate(50deg);
+}
+
+.minute {
+    height: 90px;
+    width: 10px;
+    position: absolute;
+    left: calc(50% - 5px);
+    bottom: 50%;
+    background-color: #61dafb;
+    z-index: 2;
+    transform: rotate(100deg);
+}
+
+.hour {
+    width: 12px;
+    height: 50px;
+    position: absolute;
+    left: calc(50% - 5px);
+    bottom: 50%;
+    background-color: #1ea7fd;
+    z-index: 3;
+    transform: rotate(200deg);
+}

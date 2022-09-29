@@ -7,15 +7,20 @@ import {UncontrolledAccordion} from "./components/UncontrolledAccordion/Uncontro
 import {RatingType, UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
 import {UncontrolledOnOff2} from "./components/UncontrolledOnOff2/UncontrolledOnOff2";
 import {Select} from "./components/Select/Select";
+import {SimpleAnalogClockDisplay} from "./components/SimpleAnalogClock/SimpleAnalogClockDisplay";
+import {Clock} from "./components/Clock/Clock";
 
 
 function App() {
     /*console.log("App rendering");*/
     const [ratingValue, setRatingValue] = useState<RatingType>(0)
-    const [accordionCollapsed,setAccordionCollapsed] = useState<boolean>(true)
-    const [onOffSignal,setOnOffSignal] = useState<boolean>(true)
+    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+    const [onOffSignal, setOnOffSignal] = useState<boolean>(true)
     const [selectValue, setSelectValue] = useState<any>("Arthur")
-    const users = [{value:"Arthur", title:"Arthur"},{value:"Kristine", title:"Kristine"},{value:"Olesya", title:"Olesya"}]
+    const users = [{value: "Arthur", title: "Arthur"}, {value: "Kristine", title: "Kristine"}, {
+        value: "Olesya",
+        title: "Olesya"
+    }]
     return (
         <div>
             {/*<PageTitle title={"This is App component"}/>
@@ -28,7 +33,7 @@ function App() {
             */}
             {/*<OnOff signal={true}/>
             <OnOff signal={false}/>*/}
-            <UncontrolledAccordion titleValue={"Menu"}/>
+            {/*<UncontrolledAccordion titleValue={"Menu"}/>
             <OnOff2 signal={onOffSignal} onClick={setOnOffSignal}/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <UncontrolledRating/>
@@ -45,7 +50,8 @@ function App() {
                 items={users}
             />
 
-            <UncontrolledOnOff2 onChange={setOnOffSignal}/> {onOffSignal.toString()}
+            <UncontrolledOnOff2 onChange={setOnOffSignal}/> {onOffSignal.toString()}*/}
+            <Clock/>
         </div>
     );
 }
